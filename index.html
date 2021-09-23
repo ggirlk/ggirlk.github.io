@@ -962,7 +962,7 @@ License URL: https://creativecommons.org/licenses/by/4.0/
                 var message = $("#" + form_id + " [name='message']").val();
 
                 data['subject'] = subject;
-                data['text'] = "Name: "+name+"\n"+"Email: "+email+"\nMessage: "+message;
+                data['text'] = "Name: "+name+"\n"+"Email: "+email+"\nMessage:\n"+message;
 
 
                 $.post('https://postmail.invotes.com/send',
