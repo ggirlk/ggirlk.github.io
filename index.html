@@ -380,6 +380,9 @@ License URL: https://creativecommons.org/licenses/by/4.0/
                 </div>
                 <div class="col-md-12"><textarea name="message" id=""></textarea></div>
                 <div class="col-md-12 sub-but"><button type="submit" name="send" class="btn btn-general btn-white" role="button">Send</button></div>
+                <div class="col-md-12 text-right">
+                  <p>Powered by <a href="https://postmail.invotes.com" target="_blank">PostMail</a></p>
+                </div>
               </div>
             </form>
             
@@ -888,12 +891,13 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 
 
     <!-- Global javascript -->
-    <script src="js/jquery/jquery.min.js"></script>
+    <script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
     <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-easing/jquery.easing.min.js"></script>
     <script src="js/counter/jquery.waypoints.min.js"></script>
     <script src="js/counter/jquery.counterup.min.js"></script>
     <script src="js/custom.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function(){
 
@@ -936,13 +940,13 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 
             function onSuccess() {
                 // remove this to avoid redirect
-                alert("Email Successfully Sent (isError=0)");
+                alert("Email Successfully Sent");
                 // window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
             }
 
             function onError(error) {
                 // remove this to avoid redirect
-                alert("Email could not be sent (isError=1)");
+                alert("Email could not be sent");
                 // window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
             }
 
@@ -956,11 +960,10 @@ License URL: https://creativecommons.org/licenses/by/4.0/
                 var email = $("#" + form_id + " [name='email']").val();
                 var subject = $("#" + form_id + " [name='subject']").val();
                 var message = $("#" + form_id + " [name='message']").val();
-                data['name'] = name;
-                data['email'] = email;
+
                 data['subject'] = subject;
-                //data['message'] = "Name: "+name+"<br> "+"Email: "+email+"<br>Message: "+message;
-                data['message'] = message;
+                data['text'] = "Name: "+name+"\n"+"Email: "+email+"\nMessage: "+message;
+
 
                 $.post('https://postmail.invotes.com/send',
                     data,
@@ -978,6 +981,7 @@ License URL: https://creativecommons.org/licenses/by/4.0/
             });
        });
     </script>
+
     
 </body>
 
